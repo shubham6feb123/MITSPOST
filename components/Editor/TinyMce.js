@@ -11,7 +11,7 @@ const TinyMce = ({ onChange, editorRef }) => {
         // initialValue="<p>This is the initial content of the editor.</p>"
         placeHolder="Start Typing"
         init={{
-          height: 500,
+          height: 591,
           paste_data_images: true,
           menubar: true,
           plugins: [

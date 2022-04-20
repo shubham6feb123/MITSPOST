@@ -2,12 +2,16 @@ import {
   Box,
   Button,
   Icon,
+  IconButton,
   Image,
-  List,
-  ListItem,
-  ListIcon,
-  OrderedList,
-  UnorderedList,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import styles from "../styles/NavBar1.module.css";
@@ -46,42 +50,25 @@ function NavBar1(props) {
         >
           Publish
         </Button>
-        <Button
-          className={styles.moreButton}
-          rightIcon={<MoreHorizIcon />}
-          colorScheme="blue"
-          variant="outline"
-          onClick={() => {
-            setShowMoreOptions((prev) => !prev);
-          }}
-        />
-
-        {/* more options box */}
-        <Box
-          className={styles.moreOptions}
-          display={showMoreOptions ? "" : "none"}
-        >
-          <List spacing={2}>
-            <ListItem className={styles.listItem}>
-              {/* <ListIcon as={MdCheckCircle} color="green.500" /> */}
-              Your Profile
-            </ListItem>
-            <ListItem className={styles.listItem}>
-              {/* <ListIcon as={MdCheckCircle} color="green.500" /> */}
-              Media
-            </ListItem>
-            <ListItem className={styles.listItem}>
-              {/* <ListIcon as={MdCheckCircle} color="green.500" /> */}
-              Share link
-            </ListItem>
-            {/* You can also use custom icons from react-icons */}
-            <ListItem className={styles.listItem}>
-              {/* <ListIcon as={MdSettings} color="green.500" /> */}
-              How to use?
-            </ListItem>
-          </List>
-        </Box>
-
+        {/* More Options button */}
+        <Menu isLazy direction="rtl">
+          <MenuButton
+            as={IconButton}
+            aria-label="Options"
+            icon={<MoreHorizIcon />}
+            variant="none"
+            outline={0}
+          />
+          <MenuList zIndex={12}>
+            <MenuItem>Profile</MenuItem>
+            <MenuDivider />
+            <MenuItem>Media</MenuItem>
+            <MenuDivider />
+            <MenuItem>Share Link</MenuItem>
+            <MenuDivider />
+            <MenuItem>How to use?</MenuItem>
+          </MenuList>
+        </Menu>
         <Image
           src="https://lh3.googleusercontent.com/ogw/ADea4I7MLpq38SUnxYkMPcWCZOZUImZRHnoZdf4dXr7nOg=s32-c-mo"
           alt="account"
